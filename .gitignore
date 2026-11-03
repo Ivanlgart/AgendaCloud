@@ -1,0 +1,21 @@
+# Java / Maven
+target/
+*.class
+*.jar
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Secretos y configuración local
+.env
+*.env
+application-local.properties
+
+# Terraform (el state puede contener secretos)
+**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+crash.log
