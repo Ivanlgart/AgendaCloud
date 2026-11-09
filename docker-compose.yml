@@ -1,0 +1,25 @@
+# Lista de contenedores de nuestro proyecto
+services:
+
+  # Nombre que le damos a este servicio (la base de datos)
+  mysql:
+    # La imagen: programa MySQL, version 8.4
+    image: mysql:8.4
+    # Nombre del contenedor, para encontrarlo facil despues
+    container_name: agenda
+    # Datos que MySQL lee al arrancar por primera vez
+    environment:
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+    # Puerta entre tu PC (izquierda) y el contenedor (derecha)
+    ports:
+      - "3306:3306"
+    # Donde guardar los datos para que no se pierdan
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+# Declaracion del espacio de almacenamiento
+volumes:
+  mysql_data:
