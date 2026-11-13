@@ -16,60 +16,23 @@ public class Tarea {
     private LocalDate fechaLimite;
 
     @Enumerated(EnumType.STRING)
-    private Prioridad prioridad;
+    private Prioridad prioridad = Prioridad.MEDIA;
 
     @Enumerated(EnumType.STRING)
-    private EstadoTarea estado;
+    private EstadoTarea estado = EstadoTarea.PENDIENTE;
 
-    @ManyToOne
-    @JoinColumn(name = "categoria_id")
-    private Categoria categoria;
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
-    public Long getId() {
-        return id;
-    }
+    public String getTitulo() { return titulo; }
+    public void setTitulo(String titulo) { this.titulo = titulo; }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    public LocalDate getFechaLimite() { return fechaLimite; }
+    public void setFechaLimite(LocalDate fechaLimite) { this.fechaLimite = fechaLimite; }
 
-    public String getTitulo() {
-        return titulo;
-    }
+    public Prioridad getPrioridad() { return prioridad; }
+    public void setPrioridad(Prioridad prioridad) { this.prioridad = prioridad; }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public LocalDate getFechaLimite() {
-        return fechaLimite;
-    }
-
-    public void setFechaLimite(LocalDate fechaLimite) {
-        this.fechaLimite = fechaLimite;
-    }
-
-    public EstadoTarea getEstado() {
-        return estado;
-    }
-
-    public void setEstado(EstadoTarea estado) {
-        this.estado = estado;
-    }
-
-    public Prioridad getPrioridad() {
-        return prioridad;
-    }
-
-    public void setPrioridad(Prioridad prioridad) {
-        this.prioridad = prioridad;
-    }
-
-    public Categoria getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(Categoria categoria) {
-        this.categoria = categoria;
-    }
+    public EstadoTarea getEstado() { return estado; }
+    public void setEstado(EstadoTarea estado) { this.estado = estado; }
 }
