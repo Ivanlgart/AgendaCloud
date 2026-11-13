@@ -13,6 +13,9 @@ public class Tarea {
     @Column(nullable = false)
     private String titulo;
 
+    @ManyToOne
+    private Categoria categoria;
+
     private LocalDate fechaLimite;
 
     @Enumerated(EnumType.STRING)
@@ -21,18 +24,41 @@ public class Tarea {
     @Enumerated(EnumType.STRING)
     private EstadoTarea estado = EstadoTarea.PENDIENTE;
 
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
 
-    public String getTitulo() { return titulo; }
-    public void setTitulo(String titulo) { this.titulo = titulo; }
-
-    public LocalDate getFechaLimite() { return fechaLimite; }
-    public void setFechaLimite(LocalDate fechaLimite) { this.fechaLimite = fechaLimite; }
-
-    public Prioridad getPrioridad() { return prioridad; }
-    public void setPrioridad(Prioridad prioridad) { this.prioridad = prioridad; }
-
-    public EstadoTarea getEstado() { return estado; }
-    public void setEstado(EstadoTarea estado) { this.estado = estado; }
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
+    public String getTitulo() {
+        return titulo;
+    }
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+    public LocalDate getFechaLimite() {
+        return fechaLimite;
+    }
+    public void setFechaLimite(LocalDate fechaLimite) {
+        this.fechaLimite = fechaLimite;
+    }
+    public Prioridad getPrioridad() {
+        return prioridad;
+    }
+    public void setPrioridad(Prioridad prioridad) {
+        this.prioridad = prioridad;
+    }
+    public EstadoTarea getEstado() {
+        return estado;
+    }
+    public void setEstado(EstadoTarea estado) {
+        this.estado = estado;
+    }
+    public Categoria getCategoria() {
+        return categoria;
+    }
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
 }
